@@ -44,6 +44,7 @@ public class Car : MonoBehaviour
             _velocity *= 0.80f;
             _acceleration *= 0.80f;
         }
+
         if (_acceleration >= TopAccel)
             _acceleration = TopAccel;
 
@@ -52,8 +53,8 @@ public class Car : MonoBehaviour
         // apply rotation
         _transform.Rotate(_transform.up, turning * HandleRate);
 
-        if (_acceleration >= TopSpeed)
-            _acceleration = TopSpeed;
+        if (_velocity >= TopSpeed)
+            _velocity = TopSpeed;
 
         _velocity += _acceleration;
         if (IsGrounded())
