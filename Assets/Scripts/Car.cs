@@ -92,6 +92,10 @@ public class Car : MonoBehaviour
             {
                 GetComponent<Respawner>().Explode();
             }
+            else
+            {
+                ResetVelocity();
+            }
         }
     }
 

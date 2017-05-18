@@ -42,6 +42,11 @@ public class Respawner : MonoBehaviour
         GetComponent<Renderer>().enabled = active;
         GetComponent<Car>().enabled = active;
         GetComponent<Collider>().enabled = active;
+        GetComponent<Rigidbody>().isKinematic = !active;
+        foreach (var trail in GetComponentsInChildren<TrailRenderer>())
+        {
+            trail.enabled = active;
+        }
     }
 
 
