@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 54075031265192508}
   - component: {fileID: 33968804963830640}
   - component: {fileID: 65308389298430192}
+  - component: {fileID: 114598997359989916}
   m_Layer: 0
   m_Name: CubeCar
   m_TagString: Untagged
@@ -437,6 +438,21 @@ MonoBehaviour:
   TopSpeed: 15
   PlayerId: 1
   TopAccel: 0.1
+--- !u!114 &114598997359989916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1046768638572516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce51252fcfcf71948aac8d919a195df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RaycastDistance: 1
+  RoadMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!124 &124647224014456338
 Behaviour:
   m_ObjectHideFlags: 1
