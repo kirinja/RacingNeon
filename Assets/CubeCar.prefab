@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 92266170418585662}
   - component: {fileID: 124647224014456338}
   - component: {fileID: 81011214278797780}
+  - component: {fileID: 114551914382499660}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -583,7 +584,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Acceleration: 0.01
   HandleRate: 0.9
-  TopSpeed: 15
   CrashSpeedTreshold: 10
   PlayerId: 1
   FrictionDeacceleration: 0.95
@@ -591,6 +591,17 @@ MonoBehaviour:
   SidewaysDeacceleration: 0.95
   TopAccel: 0.4
   _currentTime: 0
+--- !u!114 &114551914382499660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1181162998413880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15cdebb47c63fd4ab6edfbd03017fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114598997359989916
 MonoBehaviour:
   m_ObjectHideFlags: 1
