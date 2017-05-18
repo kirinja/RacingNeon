@@ -11,14 +11,17 @@ public class Car : MonoBehaviour
 
     public float Acceleration;
     public float HandleRate;
-    public float TopSpeed;
+    //public float TopSpeed;
     public float CrashSpeedTreshold = 10f;
     public int PlayerId;
+    public float FrictionDeacceleration = 0.99f;
+    public float BrakeDeacceleration = 0.8f;
+    public float SidewaysDeacceleration = 0.05f;
 
     public float TopAccel = 2.0f;
 
     private float _acceleration;
-    private float _velocity;
+    private Vector3 _velocity;
 
     private float _startTime;
     [HideInInspector] public float _currentTime;
@@ -44,33 +47,45 @@ public class Car : MonoBehaviour
             // accelerate up to a point
             _acceleration += Acceleration;
         }
-        else
-        {
+        /*else
+        {/**/
             // deaccel
-            _acceleration *= 0.99f;
-            _velocity *= 0.99f; // have a value [0,1] depending on current speed compared to top speed
-        }
-        if (Input.GetAxisRaw("Vertical P" + PlayerId) < -0.25f && !Input.GetButton("Accelerate P" + PlayerId))
+            _acceleration *= 1 - FrictionDeacceleration * Time.deltaTime;
+            _velocity *=
+                1 - FrictionDeacceleration *
+                Time.deltaTime; // have a value [0,1] depending on current speed compared to top speed
+        /*}/**/
+        if (Input.GetButton("Brake P" + PlayerId) && !Input.GetButton("Accelerate P" + PlayerId))
         {
-            _velocity *= 0.80f;
-            _acceleration *= 0.80f;
+            _velocity *= 1 - BrakeDeacceleration * Time.deltaTime;
+            _acceleration *= 1 - BrakeDeacceleration * Time.deltaTime;
         }
+
+	    var localVelocity = transform.InverseTransformDirection(_velocity);
+        localVelocity = new Vector3(localVelocity.x * (1 - SidewaysDeacceleration * Time.deltaTime), localVelocity.y, localVelocity.z);
+	    _velocity = transform.TransformDirection(localVelocity);
 
         if (_acceleration >= TopAccel)
             _acceleration = TopAccel;
 
        
-        var turning = Input.GetAxisRaw("Horizontal P" + PlayerId);
+        var turning = Input.GetAxis("Horizontal P" + PlayerId);
         // apply rotation
         _transform.Rotate(_transform.up, turning * HandleRate);
 
-        if (_velocity >= TopSpeed)
-            _velocity = TopSpeed;
+	    /*if (transform.InverseTransformDirection(_velocity).z >= TopSpeed)
+	    {
+	        var localVel = transform.InverseTransformDirection(_velocity);
 
-        _velocity += _acceleration;
+            localVel = new Vector3(localVel.x, localVel.y, TopSpeed);
+
+	        _velocity = transform.TransformDirection(localVel);
+	    }/**/
+
+	    _velocity += transform.forward * _acceleration;
         if (IsGrounded())
         {
-            _transform.position += _transform.forward * _velocity * Time.deltaTime;
+            _transform.position += _velocity * Time.deltaTime;
             _rigidbody.position = _transform.position;
         }
     }
@@ -93,7 +108,7 @@ public class Car : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            if (_velocity >= CrashSpeedTreshold)
+            if (_velocity.magnitude >= CrashSpeedTreshold)
             {
                 GetComponent<Respawner>().Explode();
             }
@@ -105,12 +120,12 @@ public class Car : MonoBehaviour
         else if (other.gameObject.CompareTag("Player"))
         {
             var otherCar = other.gameObject.GetComponent<Car>();
-            var globalVelocity = transform.TransformDirection(new Vector3(0f, 0f, _velocity));
-            var otherGlobalVelocity = other.transform.TransformDirection(new Vector3(0f, 0f, otherCar._velocity));
+            var globalVelocity = _velocity;
+            var otherGlobalVelocity = otherCar._velocity;
             var velocityDiff = globalVelocity - otherGlobalVelocity;
             if (velocityDiff.magnitude >= CrashSpeedTreshold)
             {
-                var slowest = _velocity < otherCar._velocity ? this : otherCar;
+                var slowest = _velocity.magnitude < otherCar._velocity.magnitude ? this : otherCar;
                 slowest.GetComponent<Respawner>().Explode();
             }
             else
@@ -132,7 +147,7 @@ public class Car : MonoBehaviour
 
     public void ResetVelocity()
     {
-        _velocity = 0f;
+        _velocity = Vector3.zero;
         _acceleration = 0f;
     }
 

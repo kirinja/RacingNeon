@@ -582,11 +582,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Acceleration: 0.01
-  HandleRate: 1.25
+  HandleRate: 0.9
   TopSpeed: 15
   CrashSpeedTreshold: 10
   PlayerId: 1
-  TopAccel: 0.1
+  FrictionDeacceleration: 0.95
+  BrakeDeacceleration: 0.9999
+  SidewaysDeacceleration: 0.95
+  TopAccel: 0.4
   _currentTime: 0
 --- !u!114 &114598997359989916
 MonoBehaviour:
