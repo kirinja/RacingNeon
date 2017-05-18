@@ -4,6 +4,7 @@
 public class PlayerCanon : MonoBehaviour
 {
     private int _shotsLeft;
+    private float _shootInput;
 
     public int Shots = 3;
     public GameObject ShotPrefab;
@@ -13,14 +14,19 @@ public class PlayerCanon : MonoBehaviour
     private void Start()
     {
         _shotsLeft = 0;
+        _shootInput = 1f;
     }
 
 
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetButtonDown("Shoot P" + GetComponent<Car>().PlayerId) && _shotsLeft > 0)
-            Shoot();
+        if (_shootInput <= float.Epsilon)
+        {
+            var shoot = Input.GetAxisRaw("Shoot P" + GetComponent<Car>().PlayerId) > float.Epsilon;
+            if (shoot) Shoot();
+        }
+        _shootInput = Input.GetAxisRaw("Shoot P" + GetComponent<Car>().PlayerId);
     }
 
 
