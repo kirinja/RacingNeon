@@ -436,6 +436,7 @@ MonoBehaviour:
   Acceleration: 0.01
   HandleRate: 1.25
   TopSpeed: 15
+  CrashSpeedTreshold: 10
   PlayerId: 1
   TopAccel: 0.1
 --- !u!114 &114598997359989916
@@ -453,6 +454,9 @@ MonoBehaviour:
   RoadMask:
     serializedVersion: 2
     m_Bits: 256
+  ExplosionPrefab: {fileID: 1966684004945790, guid: b539cd879c0699240ad92aa79ca3631d,
+    type: 2}
+  RespawnTime: 1.5
 --- !u!124 &124647224014456338
 Behaviour:
   m_ObjectHideFlags: 1

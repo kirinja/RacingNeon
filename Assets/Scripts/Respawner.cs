@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 
 public class Respawner : MonoBehaviour
@@ -7,6 +8,8 @@ public class Respawner : MonoBehaviour
 
     public float RaycastDistance = 1f;
     public LayerMask RoadMask;
+    public GameObject ExplosionPrefab;
+    public float RespawnTime = 1.5f;
 
 
     // Use this for initialization
@@ -25,11 +28,34 @@ public class Respawner : MonoBehaviour
                 _spawnPosition = transform.position;
     }
 
-
-    public void Respawn()
+    
+    public void Explode()
     {
-        // Do some more stuff here
+        Instantiate(ExplosionPrefab, transform.position, transform.rotation);
+        SetCarActive(false);
+        StartCoroutine(StartRespawning());
+    }
 
+
+    private void SetCarActive(bool active)
+    {
+        GetComponent<Renderer>().enabled = active;
+        GetComponent<Car>().enabled = active;
+        GetComponent<Collider>().enabled = active;
+    }
+
+
+    private IEnumerator StartRespawning()
+    {
+        yield return new WaitForSeconds(RespawnTime);
+        Respawn();
+    }
+
+
+    private void Respawn()
+    {
+        GetComponent<Car>().ResetVelocity();
+        SetCarActive(true);
         transform.position = _spawnPosition;
     }
 }

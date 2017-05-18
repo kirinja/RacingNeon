@@ -10,6 +10,7 @@ public class Car : MonoBehaviour
     public float Acceleration;
     public float HandleRate;
     public float TopSpeed;
+    public float CrashSpeedTreshold = 10f;
     public int PlayerId = 1;
 
     public float TopAccel = 2.0f;
@@ -18,14 +19,14 @@ public class Car : MonoBehaviour
     private float _velocity;
 
 	// Use this for initialization
-	void Start ()
+	private void Start ()
 	{
 	    _transform = transform;
 	    _rigidbody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	private void Update ()
     {
 		// do input stuff here
         if (Input.GetButton("Accelerate P" + PlayerId))
@@ -71,7 +72,7 @@ public class Car : MonoBehaviour
     // need to move the car
 
     // check if grounded
-    bool IsGrounded()
+    private bool IsGrounded()
     {
         RaycastHit hit;
         if (Physics.Raycast(_transform.position, -_transform.up, out hit, 1.0f))
@@ -80,6 +81,25 @@ public class Car : MonoBehaviour
         }
 
         return false;
+    }
+
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.CompareTag("Obstacle"))
+        {
+            if (_velocity >= CrashSpeedTreshold)
+            {
+                GetComponent<Respawner>().Explode();
+            }
+        }
+    }
+
+
+    public void ResetVelocity()
+    {
+        _velocity = 0f;
+        _acceleration = 0f;
     }
 
     // need a reset method
