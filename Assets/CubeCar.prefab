@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 33968804963830640}
   - component: {fileID: 65308389298430192}
   - component: {fileID: 114598997359989916}
+  - component: {fileID: 114613322829797572}
   m_Layer: 0
   m_Name: CubeCar
   m_TagString: Untagged
@@ -287,7 +288,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 3
+  m_Time: 1
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.1
@@ -336,7 +337,7 @@ TrailRenderer:
     numCapVertices: 10
     alignment: 0
     textureMode: 0
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0.05
   m_Autodestruct: 0
 --- !u!96 &96844351567700586
 TrailRenderer:
@@ -371,7 +372,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 3
+  m_Time: 1
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.1
@@ -386,7 +387,7 @@ TrailRenderer:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-      m_RotationOrder: 4
+      m_RotationOrder: 0
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 0, b: 0, a: 1}
@@ -420,7 +421,7 @@ TrailRenderer:
     numCapVertices: 10
     alignment: 0
     textureMode: 0
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0.05
   m_Autodestruct: 0
 --- !u!114 &114293199918865808
 MonoBehaviour:
@@ -457,6 +458,17 @@ MonoBehaviour:
   ExplosionPrefab: {fileID: 1966684004945790, guid: b539cd879c0699240ad92aa79ca3631d,
     type: 2}
   RespawnTime: 1.5
+--- !u!114 &114613322829797572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1046768638572516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f6931fde2133a4f849ad726a1aee50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!124 &124647224014456338
 Behaviour:
   m_ObjectHideFlags: 1
