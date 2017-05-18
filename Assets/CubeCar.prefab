@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114613322829797572}
   m_Layer: 0
   m_Name: CubeCar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,6 +458,8 @@ MonoBehaviour:
   ExplosionPrefab: {fileID: 1966684004945790, guid: b539cd879c0699240ad92aa79ca3631d,
     type: 2}
   RespawnTime: 1.5
+  UpsideDownToleratedTime: 1.5
+  ToleratedAngle: 90
 --- !u!114 &114613322829797572
 MonoBehaviour:
   m_ObjectHideFlags: 1
