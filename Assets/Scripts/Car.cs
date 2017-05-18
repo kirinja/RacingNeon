@@ -10,6 +10,7 @@ public class Car : MonoBehaviour
     public float Acceleration;
     public float HandleRate;
     public float TopSpeed;
+    public int PlayerId = 1;
 
     public float TopAccel = 2.0f;
 
@@ -27,7 +28,7 @@ public class Car : MonoBehaviour
 	void Update ()
     {
 		// do input stuff here
-        if (Input.GetButton("Jump"))
+        if (Input.GetButton("Accelerate P" + PlayerId))
         {
             // accelerate up to a point
             _acceleration += Acceleration;
@@ -38,16 +39,20 @@ public class Car : MonoBehaviour
             _acceleration *= 0.99f;
             _velocity *= 0.99f; // have a value [0,1] depending on current speed compared to top speed
         }
-        if (Input.GetAxisRaw("Vertical") < -0.25f && !Input.GetButton("Jump"))
+        if (Input.GetAxisRaw("Vertical P" + PlayerId) < -0.25f && !Input.GetButton("Accelerate P" + PlayerId))
         {
             _velocity *= 0.80f;
             _acceleration *= 0.80f;
         }
 
+<<<<<<< HEAD
         if (_acceleration >= TopAccel)
             _acceleration = TopAccel;
 
         var turning = Input.GetAxisRaw("Horizontal");
+=======
+        var turning = Input.GetAxisRaw("Horizontal P" + PlayerId);
+>>>>>>> d3ab2a7788f0b03b9e699e9f88d91258c9c3262e
         // apply rotation
         _transform.Rotate(_transform.up, turning * HandleRate);
 
