@@ -44,15 +44,11 @@ public class Car : MonoBehaviour
             _velocity *= 0.80f;
             _acceleration *= 0.80f;
         }
-
-<<<<<<< HEAD
         if (_acceleration >= TopAccel)
             _acceleration = TopAccel;
 
-        var turning = Input.GetAxisRaw("Horizontal");
-=======
+       
         var turning = Input.GetAxisRaw("Horizontal P" + PlayerId);
->>>>>>> d3ab2a7788f0b03b9e699e9f88d91258c9c3262e
         // apply rotation
         _transform.Rotate(_transform.up, turning * HandleRate);
 
