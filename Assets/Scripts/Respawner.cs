@@ -31,7 +31,9 @@ public class Respawner : MonoBehaviour
             if (hit.transform.CompareTag("Road"))
                 _spawnPosition = transform.position;
 
-        if (transform.rotation.eulerAngles.x >= ToleratedAngle && transform.rotation.eulerAngles.z <= 260f - ToleratedAngle)
+        if (transform.rotation.eulerAngles.x >= ToleratedAngle && transform.rotation.eulerAngles.x <= 360f - ToleratedAngle ||
+            transform.rotation.eulerAngles.z >= ToleratedAngle &&
+            transform.rotation.eulerAngles.z <= 360f - ToleratedAngle)
         {
             if (_orientationTimer.Update(Time.deltaTime))
             {
