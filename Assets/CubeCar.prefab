@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114598997359989916}
   - component: {fileID: 114613322829797572}
   - component: {fileID: 114036523096227748}
+  - component: {fileID: 114988068516342692}
   m_Layer: 0
   m_Name: CubeCar
   m_TagString: Player
@@ -605,8 +606,8 @@ MonoBehaviour:
   ExplosionPrefab: {fileID: 1966684004945790, guid: b539cd879c0699240ad92aa79ca3631d,
     type: 2}
   RespawnTime: 1.5
-  UpsideDownToleratedTime: 1.5
-  ToleratedAngle: 90
+  UpsideDownToleratedTime: 2
+  ToleratedAngle: 70
 --- !u!114 &114613322829797572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -618,6 +619,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f6931fde2133a4f849ad726a1aee50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114988068516342692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1046768638572516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea07a89cbcedc824084e62ea94be2284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shots: 3
+  ShotPrefab: {fileID: 1452309283150470, guid: 667939527323cde4191007a839e1678b, type: 2}
 --- !u!124 &124647224014456338
 Behaviour:
   m_ObjectHideFlags: 1
