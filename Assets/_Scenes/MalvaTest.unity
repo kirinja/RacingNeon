@@ -108,6 +108,48 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &322163003
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 8c429a4ee5a906c4489606c7d042c01a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.7826
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8c429a4ee5a906c4489606c7d042c01a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.1890335
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8c429a4ee5a906c4489606c7d042c01a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.8646955
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8c429a4ee5a906c4489606c7d042c01a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8c429a4ee5a906c4489606c7d042c01a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8c429a4ee5a906c4489606c7d042c01a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8c429a4ee5a906c4489606c7d042c01a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8c429a4ee5a906c4489606c7d042c01a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8c429a4ee5a906c4489606c7d042c01a, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1001 &1329204249
 Prefab:
   m_ObjectHideFlags: 0
@@ -145,7 +187,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bbb40ea456da81e43bbe4e3163f03ed5, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: bbb40ea456da81e43bbe4e3163f03ed5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -306,5 +348,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
