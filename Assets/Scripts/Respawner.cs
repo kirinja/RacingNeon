@@ -82,5 +82,6 @@ public class Respawner : MonoBehaviour
         SetCarActive(true);
         transform.position = _spawnPosition;
         transform.rotation = Quaternion.identity;
+        GetComponent<PlayerCanon>().Reset();
     }
 }
