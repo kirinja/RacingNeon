@@ -10,7 +10,7 @@ public class Car : MonoBehaviour
     public float Acceleration;
     public float HandleRate;
     public float TopSpeed;
-    public int PlayerId;
+    public int PlayerId = 1;
 
     private float _acceleration;
     private float _velocity;
