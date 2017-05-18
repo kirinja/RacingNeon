@@ -86,7 +86,7 @@ public class Car : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.CompareTag("Obstacle"))
+        if (other.gameObject.CompareTag("Obstacle"))
         {
             if (_velocity >= CrashSpeedTreshold)
             {
@@ -95,6 +95,23 @@ public class Car : MonoBehaviour
             else
             {
                 ResetVelocity();
+            }
+        }
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            var otherCar = other.gameObject.GetComponent<Car>();
+            var globalVelocity = transform.TransformDirection(new Vector3(0f, 0f, _velocity));
+            var otherGlobalVelocity = other.transform.TransformDirection(new Vector3(0f, 0f, otherCar._velocity));
+            var velocityDiff = globalVelocity - otherGlobalVelocity;
+            if (velocityDiff.magnitude >= CrashSpeedTreshold)
+            {
+                var slowest = _velocity < otherCar._velocity ? this : otherCar;
+                slowest.GetComponent<Respawner>().Explode();
+            }
+            else
+            {
+                // TODO: Find some smart way to only reset velocity on the car behind or something
+                // ResetVelocity();
             }
         }
     }
