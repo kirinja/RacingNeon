@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 
 public class Car : MonoBehaviour
@@ -11,23 +13,31 @@ public class Car : MonoBehaviour
     public float HandleRate;
     public float TopSpeed;
     public float CrashSpeedTreshold = 10f;
-    public int PlayerId = 1;
+    public int PlayerId;
 
     public float TopAccel = 2.0f;
 
     private float _acceleration;
     private float _velocity;
 
+    private float _startTime;
+    [HideInInspector] public float _currentTime;
+    private bool _reachedGoal;
+
 	// Use this for initialization
 	private void Start ()
 	{
 	    _transform = transform;
 	    _rigidbody = GetComponent<Rigidbody>();
+	    _startTime = Time.time;
 	}
 	
 	// Update is called once per frame
 	private void Update ()
-    {
+	{
+        if (!_reachedGoal)
+	        _currentTime += Time.deltaTime;
+
 		// do input stuff here
         if (Input.GetButton("Accelerate P" + PlayerId))
         {
@@ -75,12 +85,7 @@ public class Car : MonoBehaviour
     private bool IsGrounded()
     {
         RaycastHit hit;
-        if (Physics.Raycast(_transform.position, -_transform.up, out hit, 1.0f))
-        {
-            return true;
-        }
-
-        return false;
+        return Physics.Raycast(_transform.position, -_transform.up, out hit, 1.0f);
     }
 
 
@@ -96,6 +101,14 @@ public class Car : MonoBehaviour
             {
                 ResetVelocity();
             }
+        }
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.CompareTag("Goal"))
+        {
+            _reachedGoal = true;
         }
     }
 
