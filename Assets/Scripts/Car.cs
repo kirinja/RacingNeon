@@ -25,11 +25,17 @@ public class Car : MonoBehaviour
     
     public bool ReachedGoal { get; private set; }
 
+    public AudioClip RevvingSound;
+    private AudioSource _source;
+
 	// Use this for initialization
 	private void Start ()
 	{
 	    _transform = transform;
 	    _rigidbody = GetComponent<Rigidbody>();
+	    _source = GetComponent<AudioSource>();
+	    _source.clip = RevvingSound;
+	    _source.loop = true;
 	}
 	
 	// Update is called once per frame
@@ -42,10 +48,22 @@ public class Car : MonoBehaviour
         {
             // accelerate up to a point
             _acceleration += Acceleration;
+            _source.pitch += 0.0125f;
+            if (_source.pitch >= 1.5f)
+                _source.pitch = 1.5f;
+            if (!_source.isPlaying)
+                _source.Play();
+        }
+        else
+        {
+            _source.pitch -= 0.01f;
+            if (_source.pitch <= -0.4f)
+                _source.pitch = -0.4f;
         }
         /*else
         {/**/
             // deaccel
+            //_source.Stop();
             _acceleration *= 1 - FrictionDeacceleration * Time.deltaTime;
             _velocity *=
                 1 - FrictionDeacceleration *
