@@ -32,6 +32,7 @@ public class PlayerCanon : MonoBehaviour
 
     private void Shoot()
     {
+        if (_shotsLeft <= 0) return;
         _shotsLeft--;
         var shot = Instantiate(ShotPrefab, transform.position, transform.rotation);
         shot.GetComponent<Shot>().PlayerId = GetComponent<Car>().PlayerId;

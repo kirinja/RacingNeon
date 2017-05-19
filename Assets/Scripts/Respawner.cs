@@ -66,6 +66,10 @@ public class Respawner : MonoBehaviour
         {
             trail.enabled = active;
         }
+        foreach (var light in GetComponentsInChildren<Light>())
+        {
+            light.enabled = active;
+        }
     }
 
 
