@@ -4,4 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/Bootstrap.unity
+    guid: c9c34280456eb9045861d2d475666d17
+  - enabled: 1
+    path: Assets/_Scenes/CarSelect.unity
+    guid: 99523c21e5633b04a89007058ab2bb49
+  - enabled: 1
+    path: Assets/_Scenes/Bana1.unity
+    guid: 6bd59025338c8be4ab89377ac969dc24
+  - enabled: 1
+    path: Assets/_Scenes/Bana2.unity
+    guid: a86d0fd5f4f420b468c82982d6fd1834
