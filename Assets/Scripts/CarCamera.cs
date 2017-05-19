@@ -5,7 +5,7 @@ using UnityEngine;
 public class CarCamera : MonoBehaviour {
 
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 		transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0f);
 	}
 }
