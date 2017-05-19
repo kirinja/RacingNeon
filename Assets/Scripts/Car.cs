@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Car : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Car : MonoBehaviour
 
     public AudioClip RevvingSound;
     private AudioSource _source;
+    public Text WinnerText;
 
 	// Use this for initialization
 	private void Start ()
@@ -170,6 +172,23 @@ public class Car : MonoBehaviour
         if (other.transform.CompareTag("Goal"))
         {
             ReachedGoal = true;
+            // get other players and see if we won
+            var players = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject go in players)
+            {
+                if (go != gameObject)
+                {
+                    if (!go.GetComponent<Car>().ReachedGoal)
+                        WinnerText.text = "PLAYER " + PlayerId + " WINS";
+                    else
+                    {
+                        // both players have finished the race
+                        // do something
+                        // go back to select or something?
+                        Debug.Log("båda spelarna har kommit i mål");
+                    }
+                }
+            }
         }
     }
 
