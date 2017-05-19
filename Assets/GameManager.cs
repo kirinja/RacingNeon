@@ -12,13 +12,15 @@ public class GameManager : MonoBehaviour
 {
     public GameObject Player1Prefab, Player2Prefab;
     public List<HighScore> Players;
+    public string NextLevel = "Bana1";
+
     private string _saveDirectory;
     private string _savePath;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        SceneManager.LoadScene("CarSelect");
+        SceneManager.LoadScene("CitySelect");
         
         _saveDirectory = Path.Combine(Application.dataPath, SaveDirectory);
 

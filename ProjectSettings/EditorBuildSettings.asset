@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Bana2.unity
     guid: a86d0fd5f4f420b468c82982d6fd1834
+  - enabled: 1
+    path: Assets/_Scenes/CitySelect.unity
+    guid: 62714c7541e427c48a75c09c420a05f3
