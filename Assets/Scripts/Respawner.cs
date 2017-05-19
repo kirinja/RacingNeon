@@ -5,6 +5,7 @@ using UnityEngine;
 public class Respawner : MonoBehaviour
 {
     private Vector3 _spawnPosition;
+    private Quaternion _spawnRotation;
     private Timer _orientationTimer;
 
     public float RaycastDistance = 1f;
@@ -19,6 +20,7 @@ public class Respawner : MonoBehaviour
     private void Start()
     {
         _spawnPosition = transform.position;
+        _spawnRotation = transform.rotation;
         _orientationTimer = new Timer(UpsideDownToleratedTime);
     }
 
@@ -29,7 +31,10 @@ public class Respawner : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, RaycastDistance, RoadMask))
             if (hit.transform.CompareTag("Road"))
+            {
                 _spawnPosition = transform.position;
+                _spawnRotation = transform.rotation;
+            }
 
         if (transform.rotation.eulerAngles.x >= ToleratedAngle && transform.rotation.eulerAngles.x <= 360f - ToleratedAngle ||
             transform.rotation.eulerAngles.z >= ToleratedAngle &&
@@ -85,7 +90,7 @@ public class Respawner : MonoBehaviour
         GetComponent<Car>().ResetVelocity();
         SetCarActive(true);
         transform.position = _spawnPosition;
-        transform.rotation = Quaternion.identity;
+        transform.rotation = _spawnRotation;
         GetComponent<PlayerCanon>().Reset();
     }
 }
