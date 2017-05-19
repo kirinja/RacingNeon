@@ -353,7 +353,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: 2
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.1
@@ -372,7 +372,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 0.7058823, b: 0.7058823, a: 1}
+      key1: {r: 1, g: 0.7058823, b: 0.7058823, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -402,7 +402,7 @@ TrailRenderer:
     numCapVertices: 10
     alignment: 0
     textureMode: 0
-  m_MinVertexDistance: 0.05
+  m_MinVertexDistance: 0.02
   m_Autodestruct: 0
 --- !u!96 &96844351567700586
 TrailRenderer:
@@ -437,7 +437,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: 2
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.1
@@ -456,7 +456,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 0.7058823, b: 0.7058823, a: 1}
+      key1: {r: 1, g: 0.7058823, b: 0.7058823, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -486,7 +486,7 @@ TrailRenderer:
     numCapVertices: 10
     alignment: 0
     textureMode: 0
-  m_MinVertexDistance: 0.05
+  m_MinVertexDistance: 0.02
   m_Autodestruct: 0
 --- !u!108 &108707036926987744
 Light:
