@@ -180,6 +180,13 @@ public class Car : MonoBehaviour
                 {
                     if (!go.GetComponent<Car>().ReachedGoal)
                         WinnerText.text = "PLAYER " + PlayerId + " WINS";
+                    else
+                    {
+                        // both players have finished the race
+                        // do something
+                        // go back to select or something?
+                        Debug.Log("båda spelarna har kommit i mål");
+                    }
                 }
             }
         }
