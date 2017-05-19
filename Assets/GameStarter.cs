@@ -14,6 +14,7 @@ public class GameStarter : MonoBehaviour
     public float CountdownTime = 3f;
     public Text CountdownText;
     public Text[] PlayerTimeTexts;
+    public Text WinText;
 
 	// Use this for initialization
 	void Start ()
@@ -42,6 +43,8 @@ public class GameStarter : MonoBehaviour
 	    _players[1].GetComponent<Car>().PlayerId = 2;
 	    _players[0].GetComponent<CarUI>().TimeText = PlayerTimeTexts[0];
 	    _players[1].GetComponent<CarUI>().TimeText = PlayerTimeTexts[1];
+	    _players[0].GetComponent<Car>().WinnerText = WinText;
+	    _players[1].GetComponent<Car>().WinnerText = WinText;
 
 	    _players[1].GetComponentInChildren<Camera>().gameObject.GetComponent<AudioListener>().enabled = false;
 

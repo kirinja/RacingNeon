@@ -39841,6 +39841,17 @@ Prefab:
       propertyPath: Player2Position
       value: 
       objectReference: {fileID: 1424287457}
+    - target: {fileID: 114076077247111028, guid: eae6181684817dc4ca5b0d7c5b70af13,
+        type: 2}
+      propertyPath: Player2DefaultPrefab
+      value: 
+      objectReference: {fileID: 1623640221042336, guid: f69be83207cce114ea9ec7ed3908b4a4,
+        type: 2}
+    - target: {fileID: 114076077247111028, guid: eae6181684817dc4ca5b0d7c5b70af13,
+        type: 2}
+      propertyPath: WinText
+      value: 
+      objectReference: {fileID: 541441338}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eae6181684817dc4ca5b0d7c5b70af13, type: 2}
   m_IsPrefabParent: 0
