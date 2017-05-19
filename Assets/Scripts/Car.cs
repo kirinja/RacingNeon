@@ -22,24 +22,20 @@ public class Car : MonoBehaviour
 
     private float _acceleration;
     private Vector3 _velocity;
-
-    private float _startTime;
-    [HideInInspector] public float _currentTime;
-    private bool _reachedGoal;
+    
+    public bool ReachedGoal { get; private set; }
 
 	// Use this for initialization
 	private void Start ()
 	{
 	    _transform = transform;
 	    _rigidbody = GetComponent<Rigidbody>();
-	    _startTime = Time.time;
 	}
 	
 	// Update is called once per frame
 	private void FixedUpdate ()
 	{
-        if (!_reachedGoal)
-	        _currentTime += Time.deltaTime;
+        
 
 		// do input stuff here
         if (Input.GetButton("Accelerate P" + PlayerId))
@@ -140,7 +136,7 @@ public class Car : MonoBehaviour
     {
         if (other.transform.CompareTag("Goal"))
         {
-            _reachedGoal = true;
+            ReachedGoal = true;
         }
     }
 

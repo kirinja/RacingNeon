@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 114277599906532176}
   - component: {fileID: 114971406952225326}
   - component: {fileID: 114762906123348838}
+  - component: {fileID: 114726478721246030}
   m_Layer: 0
   m_Name: Lamborghini
   m_TagString: Player
@@ -631,6 +632,17 @@ MonoBehaviour:
   RespawnTime: 1.5
   UpsideDownToleratedTime: 2
   ToleratedAngle: 70
+--- !u!114 &114726478721246030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1623640221042336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a5e2a61d7247e43b9bfef5c74f0434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114734732933075506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -650,7 +662,6 @@ MonoBehaviour:
   BrakeDeacceleration: 0.9999
   SidewaysDeacceleration: 0.95
   TopAccel: 0.4
-  _currentTime: 0
 --- !u!114 &114762906123348838
 MonoBehaviour:
   m_ObjectHideFlags: 1

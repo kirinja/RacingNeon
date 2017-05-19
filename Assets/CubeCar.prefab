@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114613322829797572}
   - component: {fileID: 114036523096227748}
   - component: {fileID: 114988068516342692}
+  - component: {fileID: 114381645199491520}
   m_Layer: 0
   m_Name: CubeCar
   m_TagString: Player
@@ -603,7 +604,17 @@ MonoBehaviour:
   BrakeDeacceleration: 0.9999
   SidewaysDeacceleration: 0.95
   TopAccel: 0.4
-  _currentTime: 0
+--- !u!114 &114381645199491520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1046768638572516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a5e2a61d7247e43b9bfef5c74f0434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114551914382499660
 MonoBehaviour:
   m_ObjectHideFlags: 1

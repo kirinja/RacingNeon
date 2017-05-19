@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class CarUI : MonoBehaviour
 {
-    private Car _car;
+    private CarTimer _carTimer;
     public Text TimeText;
     public Text AttackText;
 	// Use this for initialization
 	void Start ()
 	{
-	    _car = GetComponent<Car>();
+	    _carTimer = GetComponent<CarTimer>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-	    TimeText.text = FormatTime(_car._currentTime);
+	    TimeText.text = FormatTime(_carTimer.CurrentTime);
 	}
 
     private string FormatTime(float time)
