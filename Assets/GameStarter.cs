@@ -27,6 +27,7 @@ public class GameStarter : MonoBehaviour
         {
             SetPlayersActive(true);
             CountdownText.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
         else
         {
