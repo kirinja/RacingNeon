@@ -19,6 +19,7 @@ public class Car : MonoBehaviour
     public float SidewaysDeacceleration = 0.05f;
 
     public float TopAccel = 2.0f;
+    public float TopBackAccel = 0.5f;
 
     private float _acceleration;
     private Vector3 _velocity;
@@ -60,6 +61,11 @@ public class Car : MonoBehaviour
             if (_source.pitch <= -0.4f)
                 _source.pitch = -0.4f;
         }
+	    if (Input.GetButton("Brake P" + PlayerId))
+	    {
+	        _acceleration -= Acceleration;
+            // TODO: Sound stuff?
+	    }
         /*else
         {/**/
             // deaccel
@@ -69,11 +75,11 @@ public class Car : MonoBehaviour
                 1 - FrictionDeacceleration *
                 Time.deltaTime; // have a value [0,1] depending on current speed compared to top speed
         /*}/**/
-        if (Input.GetButton("Brake P" + PlayerId) && !Input.GetButton("Accelerate P" + PlayerId))
+        /*if (Input.GetButton("Brake P" + PlayerId) && !Input.GetButton("Accelerate P" + PlayerId))
         {
             _velocity *= 1 - BrakeDeacceleration * Time.deltaTime;
             _acceleration *= 1 - BrakeDeacceleration * Time.deltaTime;
-        }
+        }/**/
 
 	    var localVelocity = transform.InverseTransformDirection(_velocity);
         localVelocity = new Vector3(localVelocity.x * (1 - SidewaysDeacceleration * Time.deltaTime), localVelocity.y, localVelocity.z);
@@ -81,6 +87,10 @@ public class Car : MonoBehaviour
 
         if (_acceleration >= TopAccel)
             _acceleration = TopAccel;
+        else if (_acceleration < -TopBackAccel)
+        {
+            _acceleration = -TopBackAccel;
+        }
         
         // kinda janky but you cant stand still and turn around anymore
         // want to make it so the turn rate is dependant on the speed (turn slower at lower speeds)
