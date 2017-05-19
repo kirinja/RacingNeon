@@ -662,6 +662,7 @@ MonoBehaviour:
   BrakeDeacceleration: 0.9999
   SidewaysDeacceleration: 0.95
   TopAccel: 0.4
+  TopBackAccel: 0.1
   RevvingSound: {fileID: 0}
 --- !u!114 &114762906123348838
 MonoBehaviour:
