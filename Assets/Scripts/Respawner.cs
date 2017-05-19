@@ -90,7 +90,7 @@ public class Respawner : MonoBehaviour
         GetComponent<Car>().ResetVelocity();
         SetCarActive(true);
         transform.position = _spawnPosition;
-        transform.eulerAngles = new Vector3(_spawnRotation.x, 0f, _spawnRotation.z);
+        transform.eulerAngles = new Vector3(0f, _spawnRotation.y, 0f);
         GetComponent<PlayerCanon>().Reset();
     }
 }
