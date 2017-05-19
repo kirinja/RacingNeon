@@ -31,6 +31,10 @@ public class Car : MonoBehaviour
     private AudioSource _source;
     public Text WinnerText;
 
+    private Camera _camera;
+    public float MinFOV = 80.0f;
+    public float MaxFOV = 100.0f;
+
 	// Use this for initialization
 	private void Start ()
 	{
@@ -39,6 +43,7 @@ public class Car : MonoBehaviour
 	    _source = GetComponent<AudioSource>();
 	    _source.clip = RevvingSound;
 	    _source.loop = true;
+	    _camera = GetComponentInChildren<Camera>();
 	}
 	
 	// Update is called once per frame
@@ -56,12 +61,26 @@ public class Car : MonoBehaviour
                 _source.pitch = 1.5f;
             if (!_source.isPlaying)
                 _source.Play();
+
+            float currFov = _camera.fieldOfView;
+            currFov += 4.0f * Time.deltaTime;
+            if (currFov >= MaxFOV)
+                currFov = MaxFOV;
+
+            _camera.fieldOfView = currFov;
         }
         else
         {
             _source.pitch -= 0.01f;
             if (_source.pitch <= -0.4f)
                 _source.pitch = -0.4f;
+
+            float currFov = _camera.fieldOfView;
+            currFov -= 4.0f * Time.deltaTime;
+            if (currFov <= MinFOV)
+                currFov = MinFOV;
+
+            _camera.fieldOfView = currFov;
         }
 	    if (Input.GetButton("Brake P" + PlayerId))
 	    {
