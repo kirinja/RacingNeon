@@ -81,11 +81,16 @@ public class Car : MonoBehaviour
 
         if (_acceleration >= TopAccel)
             _acceleration = TopAccel;
-
-       
-        var turning = Input.GetAxis("Horizontal P" + PlayerId);
-        // apply rotation
-        _transform.Rotate(_transform.up, turning * HandleRate);
+        
+        // kinda janky but you cant stand still and turn around anymore
+        // want to make it so the turn rate is dependant on the speed (turn slower at lower speeds)
+	    //if (_velocity.magnitude > 1f)
+	    //{
+	        var turnRate = _velocity.magnitude / 11.5f; // hack, we kinda know the max magitude will be 20 or so (can probably calculate it but hardcoded for now)
+	        var turning = Input.GetAxis("Horizontal P" + PlayerId);
+	        // apply rotation
+	        _transform.Rotate(_transform.up, turning * HandleRate * turnRate);
+	    //}
 
 	    /*if (transform.InverseTransformDirection(_velocity).z >= TopSpeed)
 	    {
