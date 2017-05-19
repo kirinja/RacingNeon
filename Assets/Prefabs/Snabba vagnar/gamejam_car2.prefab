@@ -675,7 +675,7 @@ MonoBehaviour:
   RoadMask:
     serializedVersion: 2
     m_Bits: 256
-  ExplosionPrefab: {fileID: 1966684004945790, guid: b539cd879c0699240ad92aa79ca3631d,
+  ExplosionPrefab: {fileID: 1771941459918194, guid: 6d673683653e52b4bb28e34a2072fe04,
     type: 2}
   RespawnTime: 1.5
   UpsideDownToleratedTime: 2
@@ -760,6 +760,9 @@ MonoBehaviour:
   TopAccel: 0.4
   TopBackAccel: 0.1
   RevvingSound: {fileID: 8300000, guid: 03e3bd08a6e70684dbe299a3e185fdd2, type: 3}
+  WinnerText: {fileID: 0}
+  MinFOV: 80
+  MaxFOV: 100
 --- !u!114 &114871573948868346
 MonoBehaviour:
   m_ObjectHideFlags: 1
