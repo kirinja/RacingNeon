@@ -43,6 +43,8 @@ public class GameStarter : MonoBehaviour
 	    _players[0].GetComponent<CarUI>().TimeText = PlayerTimeTexts[0];
 	    _players[1].GetComponent<CarUI>().TimeText = PlayerTimeTexts[1];
 
+	    _players[1].GetComponentInChildren<Camera>().gameObject.GetComponent<AudioListener>().enabled = false;
+
         SetPlayersActive(false);
         _countdownTimer = new Timer(CountdownTime);
 	}

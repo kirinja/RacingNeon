@@ -87,7 +87,7 @@ public class CarSelector : MonoBehaviour
 	        GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>().Player2Prefab =
 	            CarPrefabs[_p2Index];
             // TODO: Load correct scene here?
-            SceneManager.LoadSceneAsync("Bana1");
+            SceneManager.LoadScene("Bana1");
 	    }
     }
 
