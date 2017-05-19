@@ -687,6 +687,7 @@ MonoBehaviour:
   TopAccel: 0.4
   TopBackAccel: 0.1
   RevvingSound: {fileID: 8300000, guid: 03e3bd08a6e70684dbe299a3e185fdd2, type: 3}
+  WinnerText: {fileID: 0}
 --- !u!114 &114381645199491520
 MonoBehaviour:
   m_ObjectHideFlags: 1
