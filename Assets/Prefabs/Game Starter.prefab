@@ -132,9 +132,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca70bd5aa7b3a6a4facde9d6419d6598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Players:
-  - {fileID: 0}
-  - {fileID: 0}
+  Player1Position: {fileID: 0}
+  Player2Position: {fileID: 0}
+  Player1DefaultPrefab: {fileID: 1046768638572516, guid: 38f9851e74cb37343b91dd00726ed1f1,
+    type: 2}
+  Player2DefaultPrefab: {fileID: 1046768638572516, guid: 38f9851e74cb37343b91dd00726ed1f1,
+    type: 2}
   CountdownTime: 3
   CountdownText: {fileID: 0}
   PlayerTimeTexts:
